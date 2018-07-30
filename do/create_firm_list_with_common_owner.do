@@ -14,10 +14,6 @@ Outputs:
 clear
 set more off
 
-*cd /home/bisztray/Documents/spillovers/codes
-*local in ../data
-*local out ../data/reprod_2018
-
 local in "$in1"
 local out "$in"
 

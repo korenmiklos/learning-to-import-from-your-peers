@@ -5,7 +5,9 @@ set more off
 
 * set the location of the folder with the codes
 cd "C:/Users/Márta/Documents/munka/research/EXPORT_SPILLOVER/codes_2016/replication"
+** ?? no "cd" in the code, but say in the README where the code should start from
 
+** ?? Marti, please set these as relative path to the script folder. seems to me ../data/reprod_2018 etc would be appropriate, assuming you have moved all the replication code on the CEU server
 * set the location of the folders with the input and output data
 global in "C:/Users/Márta/Documents/munka/CEU server/Documents/spillovers/data/reprod_2018"
 global in1 "C:/Users/Márta/Documents/munka/CEU server/Documents/spillovers/data"

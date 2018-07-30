@@ -19,14 +19,6 @@ Outputs:
 clear
 set more off
 
-*cd "C:/Users/Márta/Documents/munka/CEU server/Documents/spillovers/data"
-*local in ../data
-*local out ../data/reprod_2018
-
-*local which_rovat rovat_13
-*local which_rovat all_rovat
-*local which_rovat sign_own
-
 local in "$in1"
 local out "$in"
 local which_rovat "$which_rovat"

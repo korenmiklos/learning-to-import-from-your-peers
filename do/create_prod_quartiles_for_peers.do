@@ -13,9 +13,6 @@ Output:
 clear
 set more off
 
-*local in "C:/Users/Márta/Documents/munka/CEU server/Documents/spillovers/data/reprod_2018"
-*local out "C:/Users/Márta/Documents/munka/CEU server/Documents/spillovers/data/reprod_2018"
-
 local in "$in"
 local out "$in"
 

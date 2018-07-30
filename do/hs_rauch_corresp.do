@@ -18,15 +18,13 @@ Outputs:
 clear
 set more off
 
-*global datafold "C:/Users/Márta/Documents/munka/CEU server/Documents/spillovers/data"
-*global stable "C:/Users/Márta/Documents/munka/CEU server/Documents/spillovers/data/reprod_2018"
-
 global datafold "$in1"
 global stable "$in"
 
 * STEP 1. RAUCH - SITC Rev 3 correspondence
 * based on the code - and also using the input data - from James Rauch's website (http://econweb.ucsd.edu/~jrauch/rauch_classification.html - last accessed on 10 Feb 2016)
 
+** ?? Can these be added to `data` folder?
 import delimited "$datafold/Rauch_classification_revised.csv", clear
 rename sitc4 sitc2_T4
 save  "$stable/Rauch_classification_revised.dta", replace

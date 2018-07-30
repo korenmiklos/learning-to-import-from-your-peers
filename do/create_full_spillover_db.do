@@ -81,23 +81,6 @@ Outputs:
 clear
 set more off
 
-*local which_rovat rovat_13
-*local which_rovat sign_own
-*local which_rovat all_rovat
-*local heterog ""
-*local heterog _heterog
-*local heterog _bec
-*local heterog _prod
-*local heterog _rauch
-*local heterog _numyears
-*local no_exclusion ""
-*local no_exclusion no_exclusion
-
-*cd "C:/Users/Márta/Documents/munka/CEU server/Documents/spillovers/data"
-
-*local in ../data/reprod_2018
-*local out ../data/reprod_2018
-
 local which_rovat "$which_rovat"
 local heterog "$heterog"
 local no_exclusion "$no_exclusion"

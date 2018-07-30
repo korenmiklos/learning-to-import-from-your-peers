@@ -46,23 +46,6 @@ Outputs:
 clear
 set more off
 
-*cd "C:/Users/Márta/Documents/munka/CEU server/Documents/spillovers/data"
-*local in ../data/reprod_2018
-*local out ../data/reprod_2018
-
-*local peer_expimp im
-*local peer_expimp ex
-*local sameind ""
-*local sameind sameind
-*local success ""
-*local success success
-*local heterog ""
-*local heterog _rauch
-*local heterog _bec
-*local heterog _heterog
-*local heterog _prod
-*local heterog _numyears
-
 local in "$in"
 local out "$in"
 

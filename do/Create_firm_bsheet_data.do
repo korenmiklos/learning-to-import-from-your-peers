@@ -24,11 +24,6 @@ Outputs:
 clear
 set more off
 
-*local in "C:/Users/Márta/Documents/munka/CEU server/Documents/plant_closure/data"
-*local in1 "C:/Users/Márta/Documents/munka/CEU server/Documents/audi/data/customs"
-*local in2 "C:/Users/Márta/Documents/munka/CEU server/Documents/spillovers/data"
-*local out "C:/Users/Márta/Documents/munka/CEU server/Documents/spillovers/data/reprod_2018"
-
 local in "$in3"
 local in1 "$in2"
 local in2 "$in1"

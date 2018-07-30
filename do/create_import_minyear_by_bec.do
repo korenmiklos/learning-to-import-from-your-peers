@@ -12,10 +12,6 @@ Output:
 clear
 set more off
 
-*cd "C:/Users/Márta/Documents/munka/CEU server/Documents/spillovers/data"
-*local in2 "../../audi/data/customs/"
-*local out "../data/reprod_2018"
-
 local in2 "$in2"
 local out "$in"
 

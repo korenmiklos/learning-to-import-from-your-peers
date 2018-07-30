@@ -15,15 +15,15 @@ local in "$in"
 local in1 "$in1"
 local out "$in"
 
-use tax_id year using "`in'\db_complete_for_running_the_regs_baseline_torun_rovat_13.dta", clear
+use tax_id year using "`in'/db_complete_for_running_the_regs_baseline_torun_rovat_13.dta", clear
 duplicates drop
-merge 1:1 tax_id year using "`in'\address_data.dta", keepusing(cityid streetid buildingid)
+merge 1:1 tax_id year using "`in'/address_data.dta", keepusing(cityid streetid buildingid)
 drop if _merge==2
 keep cityid streetid buildingid
 duplicates drop
 tempfile addresses
 save `addresses'
-use "`in1'\bp_addresses_w_geocoord.dta", clear
+use "`in1'/bp_addresses_w_geocoord.dta", clear
 rename buildingid buildingid_n
 rename l?? l??_n
 tempfile geo

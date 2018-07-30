@@ -85,14 +85,6 @@ outputs created:
 clear
 set more off
 
-*cd "C:/Users/Márta/Documents/munka/CEU server/Documents/spillovers/data"
-
-*local in ../data/reprod_2018
-*local in1 ../data
-*local in2 ../../audi/data/customs/
-*local in3 ../../plant_closure/data
-*local out ../results/tables/2018_June
-
 local in "$in"
 local in2 "$in2"
 local in3 "$in3"
