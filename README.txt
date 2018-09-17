@@ -1,4 +1,4 @@
-# This text file uses the following encoding: utf-8
+﻿# This text file uses the following encoding: utf-8
 
 Replication codes for 
 ----------------------------------------------------------------------------------------
@@ -107,32 +107,11 @@ PPI.dta
 	
 CLASSIFICATIONS AND CORRESPONDENCE TABLES
 
-hs02_sitc3.csv
-	content: correspondence table between 6-digit hs02 and SITC Rev 3 product categories
-	variables:
-		hs02: 6-digit HS02
-		s3: SITC Rev.3
 hs6bec.csv
 	content: correspondence table between hs6 and BEC product categories
 	variables:
 		hs6: 6-digit HS product category
 		bec: 2-digit bec product category
-hs92_sitc3.csv
-	content: correspondence table between 6-digit hs92 and SITC Rev 3 product categories
-	variables:
-		hs92: 6-digit HS92
-		s3: SITC Rev.3
-hs96_sitc3.csv
-	content: correspondence table between 6-digit hs96 and SITC Rev 3 product categories
-	variables:
-		hs96: 6-digit HS96
-		s3: SITC Rev.3
-Rauch_classification_revised.csv
-	source: http://econweb.ucsd.edu/~jrauch/rauch_classification.html 
-	content: 4-digit SITC categories by Rauch classification
-SITC_Rev_3_english_structure.txt
-	source: http://econweb.ucsd.edu/~jrauch/rauch_classification.html
-	content: SITC Rev 3 product categories
 unique_nace11_to_teaor08.csv
 	content: created from NACE Rev 1.1 - NACE Rev 2 correspondence table
 	variables:

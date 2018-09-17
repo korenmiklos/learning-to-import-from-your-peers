@@ -22,12 +22,10 @@ inputs used:
 	`in1'/frame.csv
 	`in1'/geocoordinates.dta
 	`in3'/PPI.dta
-	`in'/db_complete_additional_rauch_rovat_13.dta
 	`in'/db_complete_for_running_the_regs_baseline_torun_rovat_13.dta
 	`in'/db_complete_for_running_the_regs_baseline_torun.dta
 	`in'/db_complete_for_running_the_regs_bec_rovat_13.dta
 	`in'/db_complete_for_running_the_regs_heterog_rovat_13.dta
-	`in'/db_complete_for_running_the_regs_no_exclusion_rovat_13.dta
 	`in'/db_complete_for_running_the_regs_numyears_rovat_13.dta
 	`in'/db_complete_for_running_the_regs_prod_robust_rovat_13.dta
 	`in'/db_im_geo_neighborstat_budapest_no_ownership_link_strict.dta
@@ -50,41 +48,34 @@ outputs created:
 	Table 5: Table_reg_notyetimp.xls, baseline_hazard_imp.txt
 	Table 6: Table_notyetimp_firmgroups.xls, ttest_notyetimp_firmgroups.txt
 	Table 7: Table_notyetimp_neighbor_heterog.xls, ttest_notyetimp_neighbor_heterog.txt
-	Table 8: Table_peer_experience_time.xls, ttest_peer_experience_time.txt
-	Table 9: Table_numpeers.xls, ttest_numpeers.txt
-	Table 10: Table_notyetimp_dyadic.xls
-	Table 11: Table_numpeers_by_prod_separately.xls, ttest_numpeers_by_prod_separately.txt
-	Table 12: Table_notyetimp_sameind_sameprod.xls, ttest_notyetimp_sameind_sameprod.txt, baseline_hazard_imp_ind_prod.txt
+	Table 8: Table_numpeers.xls, ttest_numpeers.txt
+	Table 9: Table_notyetimp_dyadic.xls
+	Table 10: Table_numpeers_by_prod_separately.xls, ttest_numpeers_by_prod_separately.txt
+	Table 11: Table_notyetimp_sameind_sameprod.xls, ttest_notyetimp_sameind_sameprod.txt, baseline_hazard_imp_ind_prod.txt
 	Figure 1: Plot_event_study_FE.xls, Plot_event_study_OLS.xls
 	Figure 2: distrib_of_5year_social_multiplier_by_prod_norm_small.pdf, multiplier_calc_5.txt
 	
-	Table A1: peer_patterns.txt
-	Table A2: impshare_by_numpeers_in_bdng.txt
-	Table A3: Table_notyetimp_full.xls
-	Table A4: Table_notyetimp_person_versions.xls
-	Table A5: Table_notyetimp_alternative_samples.xls
-	Table A6: Table_notyetimp_succ_entry.xls, ttest_notyetimp_succ_entry.txt, baseline_hazard_succ_imp.txt
-	Table A7: Table_by_ind.xls
-	Table A8: Table_notyetimp_Rauch.xls
-	Table A9: mover_desc.txt
-	Table A10: Table_mover_event_study_new.xls
-	Table A11: Table_reg_notyetexp.xls, baseline_hazard_exp.txt 
+	Table A1: Table_notyetimp_full.xls
+	Table A2: Table_notyetimp_person_versions.xls
+	Table A3: Table_notyetimp_alternative_samples.xls
+	Table A4: mover_desc.txt
+	Table A5: Table_mover_event_study_new.xls
+	Table A6: Table_reg_notyetexp.xls, baseline_hazard_exp.txt 
+	Table A7: Table_peer_experience_time.xls, ttest_peer_experience_time.txt
 	
-	Table OA1: descriptives_by_import_patterns.txt
-	Table OA2: BEC_descriptives.txt
-	Table OA3: peer_patterns_1.txt
-	Table OA4: firm_group_desc.txt
-	Table OA5: Table_notyetimp_firmgroups.xls, ttest_notyetimp_firmgroups.txt
-	Table OA6: Table_notyetimp_neighbor_heterog.xls, ttest_notyetimp_neighbor_heterog.txt
-	Table OA7: Table_notyetimp_sameind_sameprod.xls, ttest_notyetimp_sameind_sameprod.txt
-	Table OA8: Table_by_same_bec_first_ever_imp.xls
-	Table OA9: Table_notyetimp_robust.xls
-	Table OA10: Table_reg_w_wo_exp_peers_compare.xls
-	Table OA11: Table_mover_event_study_full.xls, multiplier_calc_1/5.txt, numfirms_in_bdngs_w_mover.txt
-	Figure OA1: industry_by_country_1d.pdf
-	Figure OA2: industry_by_country_2d_manu.pdf
-	Figure OA3: industry_by_country_2d_serv.pdf
-	Figure OA4: distrib_of_5year_treatment_effect_by_prod_norm_small.pdf
+	Table O1: BEC_descriptives.txt
+	Table O2: descriptives_by_import_patterns.txt
+	Table O3: peer_patterns_1.txt
+	Table O4: firm_group_desc.txt
+	Table O5: Table_notyetimp_firmgroups.xls, ttest_notyetimp_firmgroups.txt
+	Table O6: Table_notyetimp_neighbor_heterog.xls, ttest_notyetimp_neighbor_heterog.txt
+	Table O7: Table_notyetimp_sameind_sameprod.xls, ttest_notyetimp_sameind_sameprod.txt
+	Table O8: Table_by_same_bec_first_ever_imp.xls
+	Table O9: Table_mover_event_study_new.xls, multiplier_calc_1/5.txt, numfirms_in_bdngs_w_mover.txt
+	Table O10: Table_reg_w_wo_exp_peers_compare.xls
+	Figure O1: industry_by_country_1d.pdf
+	Figure O2: industry_by_country_2d_manu.pdf
+	Figure O3: industry_by_country_2d_serv.pdf
 	
 */
 	
@@ -593,87 +584,8 @@ quietly{
 
 
 
-**********************************************************************
-* Table 8: Heterogeneity of peer effect by peer success in importing *
-**********************************************************************
-
-
-
-* recent successful peer experience
-use "`in'/db_complete_for_running_the_regs_baseline_torun_rovat_13.dta", clear
-drop si*_l si*_l_a
-merge 1:1 tax_id year country using "`in'/db_numneighbors_success_rovat_13.dta", update
-drop _merge
-merge 1:1 tax_id year country using "`in'/db_numneighbors_rovat_13.dta", update
-drop _merge
-cap drop *exporter* *owner* 
-cap drop *_l_a 
-foreach C in "" su {
-	foreach X in neighbor1 neighbor2 samebuilding pneighbor oneighbor{
-		replace num`C'`X'_importer_l = 0 if num`C'`X'_importer_l==. & samebuilding_importer_l!=.
-	}
-}
-* take out unsuccessful peers from the number of peers
-foreach A in neighbor1 neighbor2 samebuilding pneighbor oneighbor{
-	replace num`A'_importer_l=num`A'_importer_l-numsu`A'_importer_l
-	sum `B'`A'_importer_l
-	gen byte unsu`A'_importer_l=num`A'_importer_l>0 & num`A'_importer_l!=.
-	tab unsu`A'_importer_l
-	replace unsu`A'_importer_l=. if samebuilding_importer_l==.
-	tab unsu`A'_importer_l
-}
-local suRHS1 ""
-foreach X in samebuilding neighbor2 neighbor1 pneighbor oneighbor{
-	foreach Y in su unsu{
-		local suRHS1 "`suRHS1' `Y'`X'_importer_l"
-	}
-}
-capture noisily areg importer `suRHS1' _Icountryye_* if robustvar==1 & year>=1994 & not_yet_importer==1, cluster(address) absorb(firmyear)
-outreg2 using "`out'/Table_peer_experience_time.xls", label ctitle("successful peer") excel replace
-* test if spillovers from successful peers are different
-quietly{
-	log using "`out'/ttest_peer_experience_time.txt", replace text
-	noisily test susamebuilding_importer_l=unsusamebuilding_importer_l
-	log close
-}
-
-* length of peer experience
-use "`in'/db_complete_for_running_the_regs_baseline_torun_rovat_13.dta", clear
-drop si*_l si*_l_a
-drop su*_l su*_l_a
-merge 1:1 tax_id year country using "`in'/db_complete_for_running_the_regs_numyears_rovat_13.dta"
-drop _merge
-* create additional years of import experience dummy
-foreach X in onumy_l pnumy_l numy_neighbor_1_l numy_neighbor_2_l numy_samebuilding_l{
-	replace `X'=`X'-1 if `X'>0
-}
-* spec.1: additional variable shows the max number of years (above 1) a peer has experience in importing
-rename numy_neighbor_1_l numy_neighbor1_l
-rename numy_neighbor_2_l numy_neighbor2_l
-rename pnumy_l numy_pneighbor_l
-rename onumy_l numy_oneighbor_l
-local RHS1 ""
-foreach X in samebuilding neighbor2 neighbor1 pneighbor oneighbor{
-	local RHS1 "`RHS1' `X'_importer_l numy_`X'_l"
-}	
-capture noisily areg importer `RHS1' _Icountryye_* if robustvar==1 & year>=1994 & not_yet_importer==1, cluster(address) absorb(firmyear)
-outreg2 using "`out'/Table_peer_experience_time.xls", label ctitle("numyears +") excel append
-* spec.2: additional variable shows the max number of years (above 1) a peer has recent (continuous) experience in importing
-rename snumy_neighbor_2_l  snumy_neighbor2_l
-rename snumy_neighbor_1_l snumy_neighbor1_l 
-rename psnumy_l snumy_pneighbor_l
-rename osnumy_l snumy_oneighbor_l
-local RHS2 ""
-foreach X in samebuilding neighbor2 neighbor1 pneighbor oneighbor{
-	local RHS2 "`RHS2' `X'_importer_l snumy_`X'_l"
-}
-capture noisily areg importer `RHS2' _Icountryye_* if robustvar==1 & year>=1994 & not_yet_importer==1, cluster(address) absorb(firmyear)
-outreg2 using "`out'/Table_peer_experience_time.xls", label ctitle("recent numyears") excel append
-
-
-
 ****************************************************************
-* Table 9: Effect of peer import experience by number of peers *
+* Table 8: Effect of peer import experience by number of peers *
 ****************************************************************
 
 
@@ -723,7 +635,7 @@ quietly{
 
 
 ***************************************************************************
-* Table 10: Complementarities between peer and receiver firm productivity *
+* Table 9: Complementarities between peer and receiver firm productivity *
 ***************************************************************************
 
 
@@ -809,7 +721,7 @@ foreach X in p75 p50{
 
 
 ******************************************************************************************************************************
-* Table 11: Complementarities between peer and receiver firm productivity with peer effect increasing in the number of peers *
+* Table 10: Complementarities between peer and receiver firm productivity with peer effect increasing in the number of peers *
 ******************************************************************************************************************************
 
 
@@ -871,7 +783,7 @@ quietly{
 
 
 *******************************************************************
-* Table 12: Effect of peer experience within industry and product *
+* Table 11: Effect of peer experience within industry and product *
 *******************************************************************
 
 
@@ -1443,94 +1355,8 @@ foreach T of numlist 1/5{
 
 
 
-*****************************************************************************
-* Table A1: Share of importers with different patterns of experienced peers * 
-*****************************************************************************
-
-
-
-use "`in'/db_complete_for_running_the_regs_baseline_torun_rovat_13.dta", clear
-keep if year>=1994
-* get experience type of peers
-foreach X in export import own{
-	foreach Y in "" _a{
-		gen byte `X'_experience_l`Y'=neighbor1_`X'er_l`Y'==1 | neighbor2_`X'er_l`Y'==1 | samebuilding_`X'er_l`Y'==1 | pneighbor_`X'er_l`Y'==1 | oneighbor_`X'er_l`Y'==1
-	}
-}
-* get type of peers
-foreach X in neighbor1 neighbor2 samebuilding pneighbor oneighbor{
-	foreach Y in "" _a{
-		gen byte `X'_l`Y'=`X'_exporter_l`Y'==1 | `X'_importer_l`Y'==1 | `X'_owner_l`Y'==1
-	}
-}
-* peer experience patterns - general and country-specific
-foreach X in spec ""{
-	if "`X'"==""{
-		local Y _a
-	}
-	else if "`X'"=="spec"{
-		local Y ""
-	}
-	* by type of experience
-	gen `X'exp_type="none" if export_experience_l`Y'==0 & import_experience_l`Y'==0 & own_experience_l`Y'==0 
-	replace `X'exp_type="exponly" if export_experience_l`Y'==1 & import_experience_l`Y'==0 & own_experience_l`Y'==0 
-	replace `X'exp_type="imponly" if export_experience_l`Y'==0 & import_experience_l`Y'==1 & own_experience_l`Y'==0 
-	replace `X'exp_type="ownonly" if export_experience_l`Y'==0 & import_experience_l`Y'==0 & own_experience_l`Y'==1 
-	replace `X'exp_type="expimponly" if export_experience_l`Y'==1 & import_experience_l`Y'==1 & own_experience_l`Y'==0 
-	replace `X'exp_type="expownonly" if export_experience_l`Y'==1 & import_experience_l`Y'==0 & own_experience_l`Y'==1 
-	replace `X'exp_type="impownonly" if export_experience_l`Y'==0 & import_experience_l`Y'==1 & own_experience_l`Y'==1 
-	replace `X'exp_type="expimpown" if export_experience_l`Y'==1 & import_experience_l`Y'==1 & own_experience_l`Y'==1 
-	* by type of peer
-	gen `X'peer_type="none" if export_experience_l`Y'==0 & import_experience_l`Y'==0 & own_experience_l`Y'==0 
-	replace `X'peer_type="geoonly" if (neighbor1_l`Y'==1 | neighbor2_l`Y'==1 | samebuilding_l`Y'==1) & pneighbor_l`Y'==0 & oneighbor_l`Y'==0
-	replace `X'peer_type="personly" if neighbor1_l`Y'==0 & neighbor2_l`Y'==0 & samebuilding_l`Y'==0 & pneighbor_l`Y'==1 & oneighbor_l`Y'==0
-	replace `X'peer_type="ownonly" if neighbor1_l`Y'==0 & neighbor2_l`Y'==0 & samebuilding_l`Y'==0 & pneighbor_l`Y'==0 & oneighbor_l`Y'==1
-	replace `X'peer_type="geopersonly" if (neighbor1_l`Y'==1 | neighbor2_l`Y'==1 | samebuilding_l`Y'==1) & pneighbor_l`Y'==1 & oneighbor_l`Y'==0
-	replace `X'peer_type="geoownonly" if (neighbor1_l`Y'==1 | neighbor2_l`Y'==1 | samebuilding_l`Y'==1) & pneighbor_l`Y'==0 & oneighbor_l`Y'==1
-	replace `X'peer_type="persownonly" if neighbor1_l`Y'==0 & neighbor2_l`Y'==0 & samebuilding_l`Y'==0 & pneighbor_l`Y'==1 & oneighbor_l`Y'==1
-	replace `X'peer_type="geopersown" if (neighbor1_l`Y'==1 | neighbor2_l`Y'==1 | samebuilding_l`Y'==1) & pneighbor_l`Y'==1 & oneighbor_l`Y'==1
-}
-* share of importers by peer experience patterns
-tabout specexp_type using "`out'/peer_patterns.txt", cells(mean importer) f(3c) replace sum	
-tabout specpeer_type using "`out'/peer_patterns.txt", cells(mean importer) f(3c) append sum	
-tabout exp_type using "`out'/peer_patterns.txt", cells(mean importer) f(3c) append sum	
-tabout peer_type using "`out'/peer_patterns.txt", cells(mean importer) f(3c) append sum	
-
-
-
-******************************************************************************
-* Table A2: Share of importers with different numbers of same-building peers *
-******************************************************************************
-
-
-
-use "`in'/db_complete_for_running_the_regs_baseline_torun_rovat_13.dta", clear
-drop si*_l si*_l_a
-drop su*_l su*_l_a
-keep if year>=1994
-* number of peers and importer peers in the same building
-egen numneighbors=count(tax_id), by(address year country)
-replace numneighbors=numneighbors-1
-egen numimpneighbor=sum(importer), by(address year country)
-replace numimpneighbor=numimpneighbor-importer
-sum num*
-keep if robustvar==1 
-sum num*
-* distribution of # same-building peers
-sum numneighbors, d
-foreach X in 25 50 75 90{
-	scalar c`X' = r(p`X')
-}
-* distribution of # same-building importer peers
-sum numimpneighbor, d
-* share of importers by the number of peers and importer peers in the same building
-tabout numneighbors if numneighbors==c25 | numneighbors==c50 | numneighbors==c75 | numneighbors==c90 using "`out'/impshare_by_numpeers_in_bdng.txt", cells(mean importer N importer) f(3c 0c) replace sum
-tabout numimpneighbor if numimpneighbor==0 | numimpneighbor==1 | numimpneighbor==2 using "`out'/impshare_by_numpeers_in_bdng.txt", cells(mean importer N importer) f(3c 0c) append sum
-
-
-
 ***************************************************************
-* Table A3: Effect of peer experience on same-country imports *
+* Table A1: Effect of peer experience on same-country imports *
 ***************************************************************
 
 
@@ -1555,7 +1381,7 @@ outreg2 using "`out'/Table_notyetimp_full.xls", label ctitle("import & ownership
 
 
 ***********************************************************************
-* Table A4: Peer effects with different definitions of person network *
+* Table A2: Peer effects with different definitions of person network *
 ***********************************************************************
 
 
@@ -1596,7 +1422,7 @@ outreg2 using "`out'/Table_notyetimp_person_versions.xls", label ctitle("sign2ow
 
 
 ************************************************************
-* Table A5: Peer effects with different sample definitions *
+* Table A3: Peer effects with different sample definitions *
 ************************************************************
 
 
@@ -1624,198 +1450,8 @@ outreg2 using "`out'/Table_notyetimp_alternative_samples.xls", label ctitle("not
 
 
 
-******************************************************************
-* Table A6: Effect of peer experience on successful import entry *
-******************************************************************
-
-
-
-use "`in'/db_complete_for_running_the_regs_baseline_torun_rovat_13.dta", clear
-drop si*_l si*_l_a
-merge 1:1 tax_id year country using "`in'/db_numneighbors_success_rovat_13.dta", update
-drop _merge
-merge 1:1 tax_id year country using "`in'/db_numneighbors_rovat_13.dta", update
-drop _merge
-cap drop *_l_a 
-foreach C in "" su {
-	foreach X in neighbor1 neighbor2 samebuilding pneighbor oneighbor{
-		assert num`C'`X'_importer_l!=1 if samebuilding_importer_l==.
-		replace num`C'`X'_importer_l = 0 if num`C'`X'_importer_l==. & samebuilding_importer_l!=.
-	}
-}
-* take out unsuccessful peers from the number of peers
-foreach A in neighbor1 neighbor2 samebuilding pneighbor oneighbor{
-	gen numunsu`A'_importer_l=num`A'_importer_l-numsu`A'_importer_l
-	assert numunsu`A'_importer_l>=0 | numunsu`A'_importer_l==.
-	sum numunsu`A'_importer_l
-	gen byte unsu`A'_importer_l=numunsu`A'_importer_l>0 & numunsu`A'_importer_l!=.
-	tab unsu`A'_importer_l
-	assert unsu`A'_importer_l!=1 if samebuilding_importer_l==.
-	replace unsu`A'_importer_l=. if samebuilding_importer_l==.
-	tab unsu`A'_importer_l
-}
-local RHS1 "samebuilding_importer_l neighbor2_importer_l neighbor1_importer_l pneighbor_importer_l oneighbor_importer_l"
-local suRHS1 "susamebuilding_importer_l unsusamebuilding_importer_l suneighbor2_importer_l unsuneighbor2_importer_l suneighbor1_importer_l unsuneighbor1_importer_l supneighbor_importer_l unsupneighbor_importer_l suoneighbor_importer_l unsuoneighbor_importer_l"
-xtset groupid year
-* successful entry
-capture noisily areg F.importer_s `RHS1' _Icountryye_* if robustvar==1 & year>=1994 & not_yet_importer==1, cluster(address) absorb(firmyear)
-outreg2 using "`out'/Table_notyetimp_succ_entry.xls", label ctitle("successful import") excel replace
-capture noisily areg F.importer_s `suRHS1' _Icountryye_* if robustvar==1 & year>=1994 & not_yet_importer==1, cluster(address) absorb(firmyear)
-outreg2 using "`out'/Table_notyetimp_succ_entry.xls", label ctitle("successful import") excel append
-* test if spillover from successful peers is different
-quietly{
-	log using "`out'/ttest_notyetimp_succ_entry.txt", replace text
-	noisily test susamebuilding_importer_l=unsusamebuilding_importer_l
-	log close
-}
-* baseline probability of starting to import (firms in the estimation sample which have no peers with any country-specific experience)
-gen byte not_yet_imp_wo_exp_peers = robustvar==1 & year>=1994 & not_yet_importer==1 & neighbor1_importer_l==0 & neighbor2_importer_l==0 & samebuilding_importer_l==0 & pneighbor_importer_l==0 & oneighbor_importer_l==0 & neighbor1_exporter_l==0 & neighbor2_exporter_l==0 & samebuilding_exporter_l==0 & pneighbor_exporter_l==0 & oneighbor_exporter_l==0 & neighbor1_owner_l==0 & neighbor2_owner_l==0 & samebuilding_owner_l==0 & pneighbor_owner_l==0 & oneighbor_owner_l==0
-gen f_importer_s=F.importer_s
-tabout f_importer_s if not_yet_imp_wo_exp_peers==1 using "`out'/baseline_hazard_succ_imp.txt", c(col) f(2c) clab("nonimp_firms_wo_exp_peers") replace
-
-
-
-******************************************************
-* Table A7: Heterogeneity of peer effect by industry *
-******************************************************
-
-
-
-* get the industry of the firms
-use "`in'/firm_bsheet_data.dta", clear
-rename id8 tax_id
-keep tax_id year teaor03_2d_yearly
-gen teaor03_1d_yearly="A" if teaor03_2d_yearly<=2
-replace teaor03_1d_yearly="B" if teaor03_2d_yearly>2 & teaor03_2d_yearly<=5
-replace teaor03_1d_yearly="C" if teaor03_2d_yearly>5 & teaor03_2d_yearly<=14
-replace teaor03_1d_yearly="D" if teaor03_2d_yearly>14 & teaor03_2d_yearly<=37
-replace teaor03_1d_yearly="E" if teaor03_2d_yearly>37 & teaor03_2d_yearly<=41
-replace teaor03_1d_yearly="F" if teaor03_2d_yearly>41 & teaor03_2d_yearly<=45
-replace teaor03_1d_yearly="G" if teaor03_2d_yearly>45 & teaor03_2d_yearly<=52
-replace teaor03_1d_yearly="H" if teaor03_2d_yearly>52 & teaor03_2d_yearly<=55
-replace teaor03_1d_yearly="I" if teaor03_2d_yearly>55 & teaor03_2d_yearly<=64
-replace teaor03_1d_yearly="J" if teaor03_2d_yearly>64 & teaor03_2d_yearly<=67
-replace teaor03_1d_yearly="K" if teaor03_2d_yearly>67 & teaor03_2d_yearly<=74
-replace teaor03_1d_yearly="L" if teaor03_2d_yearly>74 & teaor03_2d_yearly<=75
-replace teaor03_1d_yearly="M" if teaor03_2d_yearly>75 & teaor03_2d_yearly<=80
-replace teaor03_1d_yearly="N" if teaor03_2d_yearly>80 & teaor03_2d_yearly<=85
-replace teaor03_1d_yearly="O" if teaor03_2d_yearly>85 & teaor03_2d_yearly<=93
-replace teaor03_1d_yearly="P" if teaor03_2d_yearly>93 & teaor03_2d_yearly<=97
-replace teaor03_1d_yearly="Q" if teaor03_2d_yearly>97 & teaor03_2d_yearly<=99
-drop teaor03_2d_yearly
-tempfile firmchar
-save `firmchar'
-* heterogeneous effect by the industry of the firm
-use "`in'/db_complete_for_running_the_regs_baseline_torun_rovat_13.dta", clear
-drop su*_l su*_l_a
-drop si*_l si*_l_a
-merge m:1 tax_id year using `firmchar'
-drop if _merge==2
-drop _merge
-tab teaor03_1d, m
-gen byte teaorABC=teaor03_1d=="A" | teaor03_1d=="B" | teaor03_1d=="C"
-gen byte teaorD=teaor03_1d=="D"
-gen byte teaorEF=teaor03_1d=="E" | teaor03_1d=="F"
-gen byte teaorG=teaor03_1d=="G"
-gen byte teaorHI=teaor03_1d=="H" | teaor03_1d=="I"
-gen byte teaorJK=teaor03_1d=="J" | teaor03_1d=="K"
-gen byte teaorL=teaor03_1d=="L" | teaor03_1d=="M" | teaor03_1d=="N" | teaor03_1d=="O" | teaor03_1d=="P" | teaor03_1d=="Q"
-gen byte teaorNA=teaor03_1d==""
-foreach X in ABC D EF G HI JK L NA {
-	foreach Y in neighbor1_importer_l neighbor2_importer_l samebuilding_importer_l pneighbor_importer_l oneighbor_importer_l{
-		gen `Y'`X'=`Y'*teaor`X'
-	}
-}
-local RHSimp1d ""
-foreach Y in samebuilding_importer_l neighbor2_importer_l neighbor1_importer_l pneighbor_importer_l oneighbor_importer_l{
-	foreach X in ABC D EF G HI JK L NA{
-		local RHSimp1d "`RHSimp1d' `Y'`X'"
-	}
-}
-capture noisily areg importer `RHSimp1d' _Icountryye_* if robustvar==1 & year>=1994 & not_yet_importer==1, cluster(address) absorb(firmyear)
-outreg2 using "`out'/Table_by_ind.xls", label ctitle("firm by ind") excel replace
-
-* peers by industry
-use "`in'/db_complete_for_running_the_regs_baseline_torun_rovat_13.dta", clear
-drop si*_l si*_l_a
-drop su*_l su*_l_a
-merge 1:1 tax_id year country using "`in'/db_numneighbors_heterog_rovat_13.dta", update
-drop _merge
-merge 1:1 tax_id year country using "`in'/db_numneighbors_rovat_13.dta", update
-drop _merge
-merge 1:1 tax_id year country using "`in'/db_complete_for_running_the_regs_heterog_rovat_13.dta", update
-drop if _merge==2
-drop _merge
-cap drop *exporter* *owner* 
-cap drop *_l_a 
-foreach C in indAC indD indEF indG indHI indJK indLQ {
-	foreach X in neighbor1 neighbor2 samebuilding pneighbor oneighbor{
-		foreach Z in "" num{
-			replace `C'`Z'`X'_importer_l = 0 if `C'`Z'`X'_importer_l==.
-		}
-	}
-}
-foreach X in neighbor1 neighbor2 samebuilding pneighbor oneighbor{ 
-	assert num`X'_importer_l!=. if (indACnum`X'_importer_l==1 | indDnum`X'_importer_l==1 | indEFnum`X'_importer_l==1 | indGnum`X'_importer_l==1 | indHInum`X'_importer_l==1 | indJKnum`X'_importer_l==1 | indLQnum`X'_importer_l==1)
-}
-* number of peers having no data on industry
-foreach X in neighbor1 neighbor2 samebuilding pneighbor oneighbor{
-	sum num`X'_importer_l
-	gen indNAnum`X'_importer_l = num`X'_importer_l-indACnum`X'_importer_l-indDnum`X'_importer_l-indEFnum`X'_importer_l-indGnum`X'_importer_l-indHInum`X'_importer_l-indJKnum`X'_importer_l-indLQnum`X'_importer_l 
-	assert indNAnum`X'_importer_l>=0
-	sum indNAnum`X'_importer_l
-}
-* existence of peers having no data on industry
-foreach X in neighbor1 neighbor2 samebuilding pneighbor oneighbor{
-	gen byte indNA`X'_importer_l=indNAnum`X'_importer_l>0 & indNAnum`X'_importer_l!=.
-	replace indNA`X'_importer_l=. if `X'_importer_l==.
-}
-local RHSvars ""
-foreach X in samebuilding_importer_l neighbor2_importer_l neighbor1_importer_l pneighbor_importer_l oneighbor_importer_l{
-	foreach Y in indAC indD indEF indG indHI indJK indLQ indNA{
-		local RHSvars "`RHSvars' `Y'`X'"
-	}
-}
-display "`RHSvars'"
-capture noisily areg importer `RHSvars' _Icountryye_* if robustvar==1 & year>=1994 & not_yet_importer==1, cluster(address) absorb(firmyear)
-outreg2 using "`out'/Table_by_ind.xls", label ctitle("peer by ind") excel append
-
-
-
-**********************************************************
-* Table A8: Heterogeneity of peer effect by product type *
-**********************************************************
-
-
-
-* get the experienced peers by Rauch-type product category
-use "`in'/db_complete_additional_rauch_rovat_13.dta", clear
-merge 1:1 tax_id year country using "`in'/db_complete_for_running_the_regs_baseline_torun_rovat_13.dta", update
-drop _merge
-drop si*_l si*_l_a
-drop su*_l su*_l_a
-foreach Z in n r w{
-	foreach X in neighbor1 neighbor2 samebuilding pneighbor oneighbor {
-		replace `X'_importer_`Z'_l = 0 if  `X'_importer_`Z'_l==. & `X'_importer_n_l!=.
-	}
-}
-* put unclassified goods in group w (groups sold in an organized exchange)
-foreach X in neighbor1 neighbor2 samebuilding pneighbor oneighbor {
-	replace `X'_importer_w_l=1 if `X'_importer_l==1 & `X'_importer_n_l!=1 & `X'_importer_r_l!=1 & `X'_importer_w_l!=1 
-}
-local RHS1 ""
-foreach X in samebuilding neighbor2 neighbor1 pneighbor oneighbor{
-	foreach Y in _w _n _r {
-		local RHS1 "`RHS1' `X'_importer`Y'_l"
-	}
-}
-capture noisily areg importer `RHS1' _Icountryye_* if robustvar==1 & year>=1994 & not_yet_importer==1, cluster(address) absorb(firmyear)
-outreg2 using "`out'/Table_notyetimp_Rauch.xls", label ctitle("importer Rauch") excel replace
-
-
-
 ***************************************************************************
-* Table A9: Descriptive statistics for buildings with new firms moving in *
+* Table A4: Descriptive statistics for buildings with new firms moving in *
 ***************************************************************************
 
 
@@ -1889,7 +1525,7 @@ quietly{
 
 
 *************************************************************************************
-* Table A10: Effect of experienced peer moving into building on same-country imports *
+* Table A5: Effect of experienced peer moving into building on same-country imports *
 *************************************************************************************
 
 
@@ -1899,7 +1535,7 @@ quietly{
 	
 
 ************************************************
-* Table A11: Peer effect in exporting behavior *
+* Table A6: Peer effect in exporting behavior *
 ************************************************
 
 
@@ -1931,24 +1567,87 @@ tabout exporter if not_yet_exp_wo_exp_peers==1 using "`out'/baseline_hazard_exp.
 
 
 
-***********************************************************
-* Table OA1: Distribution of the number of import markets *
-***********************************************************
+**********************************************************************
+* Table A7: Heterogeneity of peer effect by peer success in importing *
+**********************************************************************
 
 
 
+* recent successful peer experience
 use "`in'/db_complete_for_running_the_regs_baseline_torun_rovat_13.dta", clear
-keep tax_id year country importer importer_s
-keep if year>=1994
-collapse (max) importer importer_s, by(tax_id country)
-collapse (sum) importer importer_s, by(tax_id)
-tabout importer using "`out'/descriptives_by_import_patterns.txt", c(col) f(2c) clab(Importer) replace
-tabout importer_s using "`out'/descriptives_by_import_patterns.txt", c(col) f(2c) clab(Successful) append
+drop si*_l si*_l_a
+merge 1:1 tax_id year country using "`in'/db_numneighbors_success_rovat_13.dta", update
+drop _merge
+merge 1:1 tax_id year country using "`in'/db_numneighbors_rovat_13.dta", update
+drop _merge
+cap drop *exporter* *owner* 
+cap drop *_l_a 
+foreach C in "" su {
+	foreach X in neighbor1 neighbor2 samebuilding pneighbor oneighbor{
+		replace num`C'`X'_importer_l = 0 if num`C'`X'_importer_l==. & samebuilding_importer_l!=.
+	}
+}
+* take out unsuccessful peers from the number of peers
+foreach A in neighbor1 neighbor2 samebuilding pneighbor oneighbor{
+	replace num`A'_importer_l=num`A'_importer_l-numsu`A'_importer_l
+	sum `B'`A'_importer_l
+	gen byte unsu`A'_importer_l=num`A'_importer_l>0 & num`A'_importer_l!=.
+	tab unsu`A'_importer_l
+	replace unsu`A'_importer_l=. if samebuilding_importer_l==.
+	tab unsu`A'_importer_l
+}
+local suRHS1 ""
+foreach X in samebuilding neighbor2 neighbor1 pneighbor oneighbor{
+	foreach Y in su unsu{
+		local suRHS1 "`suRHS1' `Y'`X'_importer_l"
+	}
+}
+capture noisily areg importer `suRHS1' _Icountryye_* if robustvar==1 & year>=1994 & not_yet_importer==1, cluster(address) absorb(firmyear)
+outreg2 using "`out'/Table_peer_experience_time.xls", label ctitle("successful peer") excel replace
+* test if spillovers from successful peers are different
+quietly{
+	log using "`out'/ttest_peer_experience_time.txt", replace text
+	noisily test susamebuilding_importer_l=unsusamebuilding_importer_l
+	log close
+}
+
+* length of peer experience
+use "`in'/db_complete_for_running_the_regs_baseline_torun_rovat_13.dta", clear
+drop si*_l si*_l_a
+drop su*_l su*_l_a
+merge 1:1 tax_id year country using "`in'/db_complete_for_running_the_regs_numyears_rovat_13.dta"
+drop _merge
+* create additional years of import experience dummy
+foreach X in onumy_l pnumy_l numy_neighbor_1_l numy_neighbor_2_l numy_samebuilding_l{
+	replace `X'=`X'-1 if `X'>0
+}
+* spec.1: additional variable shows the max number of years (above 1) a peer has experience in importing
+rename numy_neighbor_1_l numy_neighbor1_l
+rename numy_neighbor_2_l numy_neighbor2_l
+rename pnumy_l numy_pneighbor_l
+rename onumy_l numy_oneighbor_l
+local RHS1 ""
+foreach X in samebuilding neighbor2 neighbor1 pneighbor oneighbor{
+	local RHS1 "`RHS1' `X'_importer_l numy_`X'_l"
+}	
+capture noisily areg importer `RHS1' _Icountryye_* if robustvar==1 & year>=1994 & not_yet_importer==1, cluster(address) absorb(firmyear)
+outreg2 using "`out'/Table_peer_experience_time.xls", label ctitle("numyears +") excel append
+* spec.2: additional variable shows the max number of years (above 1) a peer has recent (continuous) experience in importing
+rename snumy_neighbor_2_l  snumy_neighbor2_l
+rename snumy_neighbor_1_l snumy_neighbor1_l 
+rename psnumy_l snumy_pneighbor_l
+rename osnumy_l snumy_oneighbor_l
+local RHS2 ""
+foreach X in samebuilding neighbor2 neighbor1 pneighbor oneighbor{
+	local RHS2 "`RHS2' `X'_importer_l snumy_`X'_l"
+}
+capture noisily areg importer `RHS2' _Icountryye_* if robustvar==1 & year>=1994 & not_yet_importer==1, cluster(address) absorb(firmyear)
+outreg2 using "`out'/Table_peer_experience_time.xls", label ctitle("recent numyears") excel append
 
 
 
 ************************************************************
-* Table OA2: Distribution of imports by product categories *
+* Table O1: Distribution of imports by product categories *
 ************************************************************
 
 
@@ -2010,8 +1709,24 @@ foreach X in CZ SK RO RU{
 
 
 
+***********************************************************
+* Table O2: Distribution of the number of import markets *
+***********************************************************
+
+
+
+use "`in'/db_complete_for_running_the_regs_baseline_torun_rovat_13.dta", clear
+keep tax_id year country importer importer_s
+keep if year>=1994
+collapse (max) importer importer_s, by(tax_id country)
+collapse (sum) importer importer_s, by(tax_id)
+tabout importer using "`out'/descriptives_by_import_patterns.txt", c(col) f(2c) clab(Importer) replace
+tabout importer_s using "`out'/descriptives_by_import_patterns.txt", c(col) f(2c) clab(Successful) append
+
+
+
 ******************************************
-* Table OA3: Patterns of peer experience *
+* Table O3: Patterns of peer experience *
 ******************************************
 
 
@@ -2069,7 +1784,7 @@ tabout peer_type using "`out'/peer_patterns_1.txt", c(col) f(1c) clab(all) appen
 
 
 **************************************************
-* Table OA4: Size and composition of firm groups *
+* Table O4: Size and composition of firm groups *
 **************************************************
 
 
@@ -2116,7 +1831,7 @@ tabout fo2 if robustvar==1 & year>=1994 using "`out'/firm_group_desc.txt", cells
 
 
 ************************************************************
-* Table OA5: Heterogeneity of peer effect across receivers *
+* Table O5: Heterogeneity of peer effect across receivers *
 ************************************************************
 
 
@@ -2126,7 +1841,7 @@ tabout fo2 if robustvar==1 & year>=1994 using "`out'/firm_group_desc.txt", cells
 
 
 ********************************************************
-* Table OA6: Heterogeneity of peer effect across peers *
+* Table O6: Heterogeneity of peer effect across peers *
 ********************************************************
 
 
@@ -2136,7 +1851,7 @@ tabout fo2 if robustvar==1 & year>=1994 using "`out'/firm_group_desc.txt", cells
 
 	
 ********************************************************************
-* Table OA7: Effect of peer experience within industry and product *
+* Table O7: Effect of peer experience within industry and product *
 ********************************************************************
 
 
@@ -2146,7 +1861,7 @@ tabout fo2 if robustvar==1 & year>=1994 using "`out'/firm_group_desc.txt", cells
 
 
 *********************************************************************************
-* Table OA8: Effect of peer experience on same-country and same-product imports *
+* Table O8: Effect of peer experience on same-country and same-product imports *
 *********************************************************************************
 
 
@@ -2232,32 +1947,18 @@ quietly{
 
 
 
-********************************
-* Table OA9: Robustness checks *
-********************************
+***********************************************************
+* Table O9: Spillover effect of treating 1000 buildings *
+***********************************************************
 
 
 
-* ownership-connected peers not excluded from the group of closely located and person-connected peers
-use "`in'/db_complete_for_running_the_regs_no_exclusion_rovat_13.dta", clear
-local RHS "samebuilding_exporter_l neighbor2_exporter_l neighbor1_exporter_l pneighbor_exporter_l samebuilding_importer_l neighbor2_importer_l neighbor1_importer_l pneighbor_importer_l"
-capture noisily areg importer `RHS' _Icountryye_* if robustvar==1 & year>=1994 & not_yet_importer==1, cluster(address) absorb(firmyear)
-outreg2 using "`out'/Table_notyetimp_robust.xls", label ctitle("no control for ownership") excel replace
-* subsample: firms not having ownership experience from any of the four countries
-use "`in'/db_complete_for_running_the_regs_baseline_torun_rovat_13.dta", clear
-drop si*_l si*_l_a
-drop su*_l su*_l_a
-local RHS1 "samebuilding_importer_l neighbor2_importer_l neighbor1_importer_l pneighbor_importer_l oneighbor_importer_l samebuilding_exporter_l neighbor2_exporter_l neighbor1_exporter_l pneighbor_exporter_l oneighbor_exporter_l"
-capture noisily areg importer `RHS1' _Icountryye_* if robustvar==1 & year>=1994 & not_yet_importer==1 & f_owner==0 & owner==0, cluster(address) absorb(firmyear)
-outreg2 using "`out'/Table_notyetimp_robust.xls", label ctitle("importer not 4country-owned") excel append
-local RHS1 "samebuilding_importer_l neighbor2_importer_l neighbor1_importer_l pneighbor_importer_l oneighbor_importer_l samebuilding_owner_l neighbor2_owner_l neighbor1_owner_l pneighbor_owner_l oneighbor_owner_l"
-capture noisily areg importer `RHS1' _Icountryye_* if robustvar==1 & year>=1994 & not_yet_importer==1 & f_owner==0 & owner==0, cluster(address) absorb(firmyear)
-outreg2 using "`out'/Table_notyetimp_robust.xls", label ctitle("importer not 4country-owned") excel append
+*see `out'/Table_mover_event_study_new.xls and `out'/numfirms_in_bdngs_w_mover.txt from Figure 1 and `out'/multiplier_calc_1/5.txt from Figure 2
 
 
 
 **********************************************************************
-* Table OA10: Comparing importers with and without experienced peers *
+* Table O10: Comparing importers with and without experienced peers *
 **********************************************************************
 
 
@@ -2357,18 +2058,8 @@ outreg2 using "`out'/Table_reg_w_wo_exp_peers_compare.xls", label ctitle("`X', f
 
 
 
-***********************************************************
-* Table OA11: Spillover effect of treating 1000 buildings *
-***********************************************************
-
-
-
-*see `out'/Table_mover_event_study_new.xls and `out'/numfirms_in_bdngs_w_mover.txt from Figure 1 and `out'/multiplier_calc_1/5.txt from Figure 2
-
-
-
 *******************************************************************
-* Figure OA1: Industry composition of importers by source country *
+* Figure O1: Industry composition of importers by source country *
 *******************************************************************
 
 
@@ -2419,7 +2110,7 @@ graph export "`out'/industry_by_country_1d.pdf", replace
 
 
 ************************************************************************************
-* Figure OA2: Industry composition of importers in manufacturing by source country *
+* Figure O2: Industry composition of importers in manufacturing by source country *
 ************************************************************************************
 
 
@@ -2468,22 +2159,12 @@ restore
 
 
 **************************************************************************************************
-* Figure OA3: Industry composition of importers in trade and business services by source country *
+* Figure O3: Industry composition of importers in trade and business services by source country *
 **************************************************************************************************
 
 
 
 *see `out'/industry_by_country_2d_serv.pdf from Figure OA2
-
-
-
-*************************************************************************************************************
-* Figure OA4: Distribution of the 5-year treatment effect for firms with non-importer peers in the building *
-*************************************************************************************************************
-
-
-
-*see `out'/distrib_of_5year_treatment_effect_by_prod_norm.pdf from Figure 2
 
 
 
@@ -2619,26 +2300,3 @@ keep if _merge==3
 drop _merge
 estpost sum dist_n
 esttab using "`out'/additional_descriptives.txt", cells("mean(fmt(4)) sd(fmt(4))") title("Average distance between neighboring firms") nomtitle nonumber append
-
-* Share of importers importing goods in a specific Rauch category
-use "`in'/db_complete_for_running_the_regs_baseline_torun_rovat_13.dta", clear
-merge 1:1 tax_id year country using "`in'/db_complete_additional_rauch_rovat_13.dta", keepusing(importern importerr importerw)
-collapse (max) importern importerr importerw if importer==1, by(tax_id)
-*quietly {
-*    log using "`out'/additional_descriptives.txt", text append
-*	noisily display "Share of importers importing a specific Rauch product category"
-*	log close
-*}
-foreach X in n r w{
-	if "`X'"=="n"{
-		local Y differentiated
-	}
-	else if "`X'"=="r"{
-		local Y reference_priced
-	}
-	else if "`X'"=="w"{
-		local Y organized_exchange
-	}
-	tabout importer`X' using "`out'/additional_descriptives.txt", c(col) f(2c) clab("`Y'") append
-}
-
