@@ -35,198 +35,198 @@ Researchers interested in replicating our results with this same data, or conduc
 ### Primary data source
 
 #### balance_sheet.dta
-	- source: National Tax and Customs Administration of Hungary and Complex firm registry data
-	- content: balance sheet statements of all Hungarian double bookkeeping firms
-	- time period: 1992-2012
-	- variables:
-		- 	originalid: firm identifier
-		- 	year
-		- 	emp: number of employees
-		- 	sales: total sales in 1000HUF 
-		- 	export: export sales in 1000HUF
-		- 	gdp: gross value added in 1000HUF (sales + capitalized value of self-manufactured assets - material)
-		- 	jetok: total capital in 1000HUF
-		- 	jetok06: foreign-owned capital in 1000HUF
-		- 	ranyag: material expenditure in 1000HUF
-		- 	teaor03_2d: 2-digit teaor'03 industry code (corresponds to NACE Rev 1.1)
-		- 	teaor_raw: 4-digit raw industry codes (teaor92 in years 1992-1997, teaor98 in years 1998-2002, teaor03 in years 2003-2007, teaor08 in years 2008-2012)
-		- 	fo2: dummy for foreign-owned share >=50%
-		- 	so2: dummy for state-owned share>=50%
-		- 	foundyear: foundation year
-		- 	persexp: payments to personnel in 1000HUF
-		- 	wbill: wage bill in 1000HUF 
-		- 	tanass: tangible assets in 1000HUF
+- _source_: National Tax and Customs Administration of Hungary and Complex firm registry data
+- _content_: balance sheet statements of all Hungarian double bookkeeping firms
+- _time period_: 1992-2012
+- _variables_:
+	- 	`originalid`: firm identifier
+	- 	`year`
+	- 	`emp`: number of employees
+	- 	`sales`: total sales in 1000HUF 
+	- 	`export`: export sales in 1000HUF
+	- 	`gdp`: gross value added in 1000HUF (sales + capitalized value of self-manufactured assets - material)
+	- 	`jetok`: total capital in 1000HUF
+	- 	`jetok06`: foreign-owned capital in 1000HUF
+	- 	`ranyag`: material expenditure in 1000HUF
+	- 	`teaor03_2d`: 2-digit teaor'03 industry code (corresponds to NACE Rev 1.1)
+	- 	`teaor_raw`: 4-digit raw industry codes (teaor92 in years 1992-1997, teaor98 in years 1998-2002, teaor03 in years 2003-2007, teaor08 in years 2008-2012)
+	- 	`fo2`: dummy for foreign-owned share >=50%
+	- 	`so2`: dummy for state-owned share>=50%
+	- 	`foundyear`: foundation year
+	- 	`persexp`: payments to personnel in 1000HUF
+	- 	`wbill`: wage bill in 1000HUF 
+	- 	`tanass`: tangible assets in 1000HUF
 
 #### county-nuts-city-ksh-codes.csv
-	source: Hungarian Statistics Office
-	content: city names with statistical codes, counties and NUTS3 regions
-	variables:
-		ksh_code: statistical code of a settlement 
-		nuts3: NUTS3 region
+- _source_: Hungarian Statistics Office
+- _content_: city names with statistical codes, counties and NUTS3 regions
+- _variables_:
+	- `ksh_code`: statistical code of a settlement 
+	- `nuts3`: NUTS3 region
 
 #### deflators.dta
-	source: Hungarian Statistics Office
-	content: GDP deflator, capital deflator, wage index
-	time period: 1992-2013
-	variables:
-		year
-		K_deflator: capital deflator
-		wage_index: wage index
+- _source_: Hungarian Statistics Office
+- _content_: GDP deflator, capital deflator, wage index
+- _time period_: 1992-2013
+- _variables_:
+	- `year`
+	- `K_deflator`: capital deflator
+	- `wage_index`: wage index
 
 #### ex91.dta - ex03.dta
-	source: Hungarian customs statistics
-	cotent: yearly value of export transactions by firm-country-product category (hs6)
-	time period: single year from 1991 to 2003
-	variables:
+- _source_: Hungarian customs statistics
+- _cotent_: yearly value of export transactions by firm-country-product category (hs6)
+- _time period_: single year from 1991 to 2003
+- _variables_:
 		e_ft91/92/../03: yearly export value in HUF
-		a1: firm identifier
-		szao: destination country
-		hs6: 6-digit HS product category
+	- `a1`: firm identifier
+	- `szao`: destination country
+	- `hs6`: 6-digit HS product category
 
 #### im91.dta - im03.dta
-	source: Hungarian customs statistics
-	cotent: yearly value of import transactions by firm-country-product category (hs6)
-	time period: single year from 1991 to 2003
-	variables:
-		i_ft91/92/../03: yearly import value in HUF
-		a1: firm identifier
-		szao: source country
-		hs6: 6-digit HS product category
+- _source_: Hungarian customs statistics
+- _cotent_: yearly value of import transactions by firm-country-product category (hs6)
+- _time period_: single year from 1991 to 2003
+- _variables_:
+	- `i_ft91/92/../03`: yearly import value in HUF
+	- `a1`: firm identifier
+	- `szao`: source country
+	- `hs6`: 6-digit HS product category
 
 #### PPI.dta
-	source: Hungarian Statistics Office
-	content: material price index and producer price index by 2-digit industry - PPI also separately for exports and domestic sales
-	time period: 1992-2013
-	variables:
-		year
-		nace2: 2-digit industry category (NACE Rev. 1.1)
-		PPI: producer price index
-		ex_PPI: producer price index for export sales
-		dom_PPI: produced price index for domestic sales
-		materialPPI: material price index
+- _source_: Hungarian Statistics Office
+- _content_: material price index and producer price index by 2-digit industry - PPI also separately for exports and domestic sales
+- _time period_: 1992-2013
+- _variables_:
+	- `year`
+	- `nace2`: 2-digit industry category (NACE Rev. 1.1)
+	- `PPI`: producer price index
+	- `ex_PPI`: producer price index for export sales
+	- `dom_PPI`: produced price index for domestic sales
+	- `materialPPI`: material price index
 	
 ### Classificiations and correspondance tables
 
 
 #### hs6bec.csv
-	content: correspondence table between hs6 and BEC product categories
-	variables:
-		hs6: 6-digit HS product category
-		bec: 2-digit bec product category
+- _content_: correspondence table between hs6 and BEC product categories
+- _variables_:
+	- `hs6`: 6-digit HS product category
+	- `bec`: 2-digit bec product category
 
 #### unique_nace11_to_teaor08.csv
-	content: created from NACE Rev 1.1 - NACE Rev 2 correspondence table
-	variables:
-		nace: 4-digit NACE Rev. 1.1
-		teaor08: 4-digit TEAOR'08 (corresponds to NACE Rev.2)
+- _content_: created from NACE Rev 1.1 - NACE Rev 2 correspondence table
+- _variables_:
+	- `nace`: 4-digit NACE Rev. 1.1
+	- `teaor08`: 4-digit TEAOR'08 (corresponds to NACE Rev.2)
 
 ### Data built from primary sources
 
 
 #### 1992-2006.csv
-	source: Complex firm registry data
-	content: firm-year panel of headquarters (city, street, building)
-	time period: 1992-2006
-	variables:
-		taxid: firm identifier
-		year
-		cityid: city name identifier
-		streetid: street name identifier
-		buildingid: building number
+- _source_: Complex firm registry data
+- _content_: firm-year panel of headquarters (city, street, building)
+- _time period_: 1992-2006
+- _variables_:
+	- `taxid`: firm identifier
+	- `year`
+	- `cityid`: city name identifier
+	- `streetid`: street name identifier
+	- `buildingid`: building number
 
 #### bp_addresses_w_geocoord.dta
-	source: Complex firm registry data
-	content: geocoordinates assigned to addresses in Budapest
-	variables:
-		cityid: city identifier
-		streetid: street identifier
-		buildingid: building number
-		lat: latitude
-		lon: longitude
+- _source_: Complex firm registry data
+- _content_: geocoordinates assigned to addresses in Budapest
+- _variables_:
+	- `cityid`: city identifier
+	- `streetid`: street identifier
+	- `buildingid`: building number
+	- `lat`: latitude
+	- `lon`: longitude
 
 #### country_code.dta
-	source: Complex firm registry data
-	content: yearly panel of country codes the firm has owners from
-	time period: 1992-2003
-	variables:
-		tax_id: firm identifier
-		year
-		country_code: 2-digit ISO country code
+- _source_: Complex firm registry data
+- _content_: yearly panel of country codes the firm has owners from
+- _time period_: 1992-2003
+- _variables_:
+	- `tax_id`: firm identifier
+	- `year`
+	- `country_code`: 2-digit ISO country code
 
 #### frame.csv
-	source: Complex firm registry data
-	content: firms with birth and death dates
-	time period: 1991-2011 (including earlier birth dates)
-	variables:
-		tax_id: firm identifier
-		birth_date: date of incorporation as an 8-digit integer, using the order year month day
-		death_date: date of ending operation as an 8-digit integer, using the order year month day
+- _source_: Complex firm registry data
+- _content_: firms with birth and death dates
+- _time period_: 1991-2011 (including earlier birth dates)
+- _variables_:
+	- `tax_id`: firm identifier
+	- `birth_date`: date of incorporation as an 8-digit integer, using the order year month day
+	- `death_date`: date of ending operation as an 8-digit integer, using the order year month day
 
 #### frame_old_format.csv
-	source: Complex firm registry data
-	content: firms with birth and death dates
-	time period: 1991-2014 (including earlier birth dates)
-	variables:
-		tax_id: firm identifier
-		birth_date: date of incorporation as an 8-digit integer, using the order year month day
-		death_date: date of ending operation as an 8-digit integer, using the order year month day
+- _source_: Complex firm registry data
+- _content_: firms with birth and death dates
+- _time period_: 1991-2014 (including earlier birth dates)
+- _variables_:
+	- `tax_id`: firm identifier
+	- `birth_date`: date of incorporation as an 8-digit integer, using the order year month day
+	- `death_date`: date of ending operation as an 8-digit integer, using the order year month day
 
 #### firm_hqs_yearly_slices.csv
-	source: Complex firm registry data
-	content: yearly detailed headquarter addresses of firms (up to floor and door)
-	time period: 1990-2014
-	variables:
-		taxid: firm identifier
-		year
-		cityid: city identifier
+- _source_: Complex firm registry data
+- _content_: yearly detailed headquarter addresses of firms (up to floor and door)
+- _time period_: 1990-2014
+- _variables_:
+	- `taxid`: firm identifier
+	- `year`
+	- `cityid`: city identifier
 
 #### firmperson_important_liquidator_dummy.csv
-	source: Complex firm registry data
-	content: list of firms with connecting people and an indicator for liquidators
-		tax_id: firm identifier
+- _source_: Complex firm registry data
+- _content_: list of firms with connecting people and an indicator for liquidators
+	- `tax_id`: firm identifier
 		person_id 
-		felsz: dummy, 1 if person is ever a liquidator in the firm
+	- `felsz`: dummy, 1 if person is ever a liquidator in the firm
 
 #### location.dta
-	source: Complex firm registry data
-	content: firm-year panel of headquarters (city, street, building)
-	time period: 1992-2006
-	variables:
-		tax_id: firm identifier 
-		year 
-		cityid: city identifier
-		streetid: street identifier
-		buildingid: building number
+- _source_: Complex firm registry data
+- _content_: firm-year panel of headquarters (city, street, building)
+- _time period_: 1992-2006
+- _variables_:
+	- `tax_id`: firm identifier 
+	- `year` 
+	- `cityid`: city identifier
+	- `streetid`: street identifier
+	- `buildingid`: building number
 
 #### ownership_mixed_directed.csv
-	source: Complex firm registry data
-	content: list of person and firm owners of firms with start and end dates
-	time period: 1991-2013
-	variables:
-		tax_id: firm identifier
-		tax_id_owner: identifier of the owner firm
-		person_id_owner: identifier of the owner person
-		start: start date of the ownership, string, using the format "yyyy-mm-dd"
-		end: end date of the ownership, string, using the format "yyyy-mm-dd"
+- _source_: Complex firm registry data
+- _content_: list of person and firm owners of firms with start and end dates
+- _time period_: 1991-2013
+- _variables_:
+	- `tax_id`: firm identifier
+	- `tax_id_owner`: identifier of the owner firm
+	- `person_id_owner`: identifier of the owner person
+	- `start`: start date of the ownership, string, using the format "yyyy-mm-dd"
+	- `end`: end date of the ownership, string, using the format "yyyy-mm-dd"
 
 #### person_firm_connection_in_all_rovats_using_30d_threshold.csv
-	source: Complex firm registry data
-	content: list of firms with connected people having any connection, with start and end dates
-	time period: 1991-2013
-	variables:
-		tax_id: firm identifier
-		person_id: identifier of the person
-		date_of_start: start date of the ownership, string, using the format "yyyy-mm-dd"
-		date_of_end: end date of the ownership, string, using the format "yyyy-mm-dd"
+- _source_: Complex firm registry data
+- _content_: list of firms with connected people having any connection, with start and end dates
+- _time period_: 1991-2013
+- _variables_:
+	- `tax_id`: firm identifier
+	- `person_id`: identifier of the person
+	- `date_of_start`: start date of the ownership, string, using the format "yyyy-mm-dd"
+	- `date_of_end`: end date of the ownership, string, using the format "yyyy-mm-dd"
 
 #### person_firm_connection_by_rovats_using_30d_threshold,csv
-	source: Complex firm registry data
-	content: list of firms with connected people, and type of the connection with start and end dates
-	time period: 1991-2013
-	variables:
-		tax_id: firm identifier
-		person_id: identifier of the person
-		rovat_name: name of the rovat indicating the type of the relationship, string
-		date_of_start: start date of the ownership, string, using the format "yyyy-mm-dd"
-		date_of_end: end date of the ownership, string, using the format "yyyy-mm-dd"	
+- _source_: Complex firm registry data
+- _content_: list of firms with connected people, and type of the connection with start and end dates
+- _time period_: 1991-2013
+- _variables_:
+	- `tax_id`: firm identifier
+	- `person_id`: identifier of the person
+	- `rovat_name`: name of the rovat indicating the type of the relationship, string
+	- `date_of_start`: start date of the ownership, string, using the format "yyyy-mm-dd"
+	- `date_of_end`: end date of the ownership, string, using the format "yyyy-mm-dd"	
 
