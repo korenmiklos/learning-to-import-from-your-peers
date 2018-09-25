@@ -36,7 +36,7 @@ Researchers interested in replicating our results with this same data, or conduc
 
 #### balance_sheet.dta
 - _source_: National Tax and Customs Administration of Hungary and Complex firm registry data
-- _content_: balance sheet statements of all Hungarian double bookkeeping firms
+- _content_: balance sheet statements of all Hungarian double-entry bookkeeping firms
 - _time period_: 1992-2012
 - _variables_:
 	- 	`originalid`: firm identifier
@@ -58,14 +58,14 @@ Researchers interested in replicating our results with this same data, or conduc
 	- 	`tanass`: tangible assets in 1000HUF
 
 #### county-nuts-city-ksh-codes.csv
-- _source_: Hungarian Statistics Office
+- _source_: Hungarian Central Statistical Office
 - _content_: city names with statistical codes, counties and NUTS3 regions
 - _variables_:
 	- `ksh_code`: statistical code of a settlement 
 	- `nuts3`: NUTS3 region
 
 #### deflators.dta
-- _source_: Hungarian Statistics Office
+- _source_: Hungarian Central Statistical Office
 - _content_: GDP deflator, capital deflator, wage index
 - _time period_: 1992-2013
 - _variables_:
@@ -74,18 +74,18 @@ Researchers interested in replicating our results with this same data, or conduc
 	- `wage_index`: wage index
 
 #### ex91.dta - ex03.dta
-- _source_: Hungarian customs statistics
-- _cotent_: yearly value of export transactions by firm-country-product category (hs6)
+- _source_: Hungarian Customs Statistics
+- _cotent_: yearly value of export transactions by firm-country-product category 
 - _time period_: single year from 1991 to 2003
 - _variables_:
-		e_ft91/92/../03: yearly export value in HUF
+	- `e_ft91/92/../03`: yearly export value in HUF
 	- `a1`: firm identifier
 	- `szao`: destination country
 	- `hs6`: 6-digit HS product category
 
 #### im91.dta - im03.dta
-- _source_: Hungarian customs statistics
-- _cotent_: yearly value of import transactions by firm-country-product category (hs6)
+- _source_: Hungarian Customs Statistics
+- _cotent_: yearly value of import transactions by firm-country-product category
 - _time period_: single year from 1991 to 2003
 - _variables_:
 	- `i_ft91/92/../03`: yearly import value in HUF
@@ -94,7 +94,7 @@ Researchers interested in replicating our results with this same data, or conduc
 	- `hs6`: 6-digit HS product category
 
 #### PPI.dta
-- _source_: Hungarian Statistics Office
+- _source_: Hungarian Central Statistical Office
 - _content_: material price index and producer price index by 2-digit industry - PPI also separately for exports and domestic sales
 - _time period_: 1992-2013
 - _variables_:
@@ -109,7 +109,7 @@ Researchers interested in replicating our results with this same data, or conduc
 
 
 #### hs6bec.csv
-- _content_: correspondence table between hs6 and BEC product categories
+- _content_: correspondence table between HS6 and BEC product categories
 - _variables_:
 	- `hs6`: 6-digit HS product category
 	- `bec`: 2-digit bec product category
